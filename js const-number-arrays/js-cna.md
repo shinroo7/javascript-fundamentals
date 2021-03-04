@@ -257,7 +257,7 @@ console.log(typeof name);
 ## Arrays, Functions, Objects
 ### Arrays
 
-- store a list of items by using [], and it's 0 index based which means the first item's index is 0.
+store a list of items by using [], and it's 0 index based which means the first item's index is 0.
 
 ```
 const friend1 = 'Serene';
@@ -283,21 +283,168 @@ console.log(friends);
 console.log(friends[4]);
 ```
 
-### Functions
+### Functions - declare and invoke
 
+when you have repetitive elements in different sections, you can use function to organise them better.
 
+Example: replace Karen to Joey...
+```
+console.log('Hello there Serene');
+console.log('Hello there Celine');
+console.log('Hello there Karen');
+// come code here...
+console.log('Hello there Serene');
+console.log('Hello there Celine');
+console.log('Hello there Karen');
+// come code here...
+console.log('Hello there Serene');
+console.log('Hello there Celine');
+console.log('Hello there Karen');
+// come code here...
 ```
 
+instead of change the name one by one, you can use function.
+```
+function hello() {
+    // logic
+    console.log("Hello there Serene");
+    console.log("Hello there Celine");
+    console.log("Hello there Joey");
+}
+
+hello();
+// come code here...
+hello();
+// come code here...
+hello();
+// come code here...
 ```
 
-### Objects
+### Functions - Parameters, Arguments​
 
+- params - when declare/define
+- placeholders, local vars (can only use in the function)
+- arguments - when invoke/call/run
+- use vars/values, multiple params, undefined
 
 ```
+const serene = 'Serene';
+const celine = "Celine";
+const joey = "Joey";
 
+function greet(name, second) {
+    console.log("Hello there " + name);
+    console.log(second);
+}
+
+// greet serene
+greet('Serene');
+
+// greet celine 
+greet('Celine');
+
+// greet joey
+greet('Joey');
+
+// greet Celine and Joey, you need to set up the second param to declare(assign) for the second value(joey or 'Joey')
+greet(celine, 'Joey');
+```
+
+### Functions - Return
+
+- default undefined, shortcuts, ignores after
+- all functions by default return undefined
+- anything behind the return will be ignore
+
+```
+const wallHeight = 80;
+
+function calculate(value) {
+  console.log('The value in cm is: ' + value * 2.54 + ' cm'); 
+  // --- or...
+  const newValue = value * 2.54;
+
+  return newValue;  
+  //--- or...
+  return value * 2.54;
+
+  console.log('hello'); // be ignored
+}
+
+const width = calculate(100);
+const height = calculate(wallHeight);
+
+const dimensions = [width, height];
+console.log(dimensions);
+```
+
+### Functions - Expressions​
+
+You can choose different syntex ways writing functions. Expression is one of them.
+
+- expressions - another way define a function
+- create a variable, assign to FUNCTION (not value), use var
+- diff - hoisting, use - arrow func (=>), libraries. 
+
+```
+// function definition/declaration
+function addValues(num1, num2) {
+    return num1 + num2;
+}
+const firstValue = addValues(3, 4);
+const secondValue = addValues(12, 34);
+
+// function expression
+const add = function addValues(num1, num2) {
+  return num1 + num2;
+};
+
+// many ways to write the values in the array
+
+const thirdValue = add(5, 6);
+const values = [firstValue, secondValue, thirdValue];
+
+// OR 
+const values = [firstValue, secondValue, 11];
+
+// OR
+const values = [firstValue, secondValue, add(5, 6)];
+
+console.log(values);
 ```
 
 
+### Objects 
 
+- key(property)/value pairs methods
+- dot notation --- variable.property
 
+```
+const person = {
+    name: "Joey",
+    lastName: "Tribiani",
+    age: 31,
+    education: true,
+    married: false,
+    sibilings: ["Deena", "Anna", "Mina"],
+    /* greeting: function greeting() {
+    console.log('Hello my name is Joey');
+    } */
 
+  // can omit property/function
+    greeting() {
+    console.log("Hello my name is Joey");
+    },
+};
+
+// assign property to a variable
+const age = person.age;
+console.log(age);
+
+// re-assign a value to the property
+person.name = 'Chandler';
+console.log(person.name);
+
+console.log(person.sibilings[0]);
+person.greeting();
+```
