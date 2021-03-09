@@ -1,14 +1,13 @@
-// Connect The Dots 
+// Connect The Dots
 // String Properties And Methods ​
 // Template Literals ​
-// Array Properties And Methods 
-// Exercise - Full Name ​
+// Array Properties And Methods
+// Exercise - Full Name ​(array + for loop)
 // Exercise - Calculate Total ​
 // Value Vs Reference ​
-// Null And Undefined 
-// Truthy And Falsy 
+// Null And Undefined
+// Truthy And Falsy
 // Ternary Operator
-
 
 // String Properties And Methods +()
 // wrapper String Object, don't need to memorise methods
@@ -30,7 +29,6 @@
 // console.log(text.slice(3, 6)); //return a section of a string. Start from index 3 character and end at index 5.
 // console.log(text.slice(-3)); //return a section of a string starting from the end. EX. -3 shows the last 3 characters of Jordan -- 'dan' .
 
-
 // const person = {
 //     name: 'Michael', //property
 //     greeting() {
@@ -42,7 +40,6 @@
 // console.log(person);
 // console.log(person.name);
 // person.greeting();
-
 
 // Template Literals - ES6+
 // Backtick characters `` - above tab (left from one), easier and simpler
@@ -63,9 +60,115 @@
 
 // console.log(value);
 
+// ARRAY Properties And Methods
+// let names = ['john', 'bobo', 'betty', 'olga', 'ben'];
 
-// Array Properties And Methods
-let name = ['john', 'bobo', 'betty', 'olga', 'ben'];
+// // length - how many elements in an array
+// console.log(names.length);
 
+// // find the last elements in an array
+// console.log(names[names.length - 1]);
+
+// // concat - combine multiple arrays
+// const lastNames = ['pepper', 'onion', 'banana'];
+// const allNames = names.concat(lastNames);
+// console.log(allNames);
+
+// // reverse - change the order of the elements in an array
+// console.log(allNames.reverse());
+
+// // unshift - inserts new elements at the start of an array
+// allNames.unshift('cindy');
+// allNames.unshift("Jouns");
+// console.log(allNames);
+
+// // shift - removes elements at the start of an array
+// // "Jouns", "cindy", "banana", "onion", "pepper", "ben", "olga", "betty", "bobo", "john" ---> "onion", "pepper", "ben", "olga", "betty", "bobo", "john"
+// allNames.shift();
+// allNames.shift();
+// allNames.shift();
+// console.log(allNames);
+
+// // push - inserts new elements at the end of an array
+// allNames.push('cindy');
+// console.log(allNames);
+
+// // pop - removes elements at the end of an array
+// allNames.pop();
+// allNames.pop();
+// allNames.pop();
+// console.log(allNames);
+
+// // splice - mutates original array. Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements
+// // splice (indexNo. , deleteCount#)
+// const specificNames = allNames.splice(0, 2);
+// console.log(specificNames);
+// console.log(allNames);
+
+// ARRAYS and for loop
+
+// const names = ["anna", "susy", "bob"];
+// const lastNames = "shakeandbake";
+// let newArray = [];
+
+// // for loop
+// // i is variable and assign 0 (index) as value
+
+// for (let i = 0; i < names.length; i++) {
+//   console.log(i);
+//   console.log(names[i]);
+//   // method 1 - calculation
+//     // newArray.push(`${names[i]} ${lastNames}`);
+//   //method 2 - another variable
+//   const fullName = `${names[i]} ${lastNames}`;
+//   newArray.push(fullName);
+// }
+
+// console.log(names);
+// console.log(newArray);
+
+// FUNCTIONS, return, if, arrays, for loop
+
+// const gas = [20, 40, 100, 30];
+// const food = [10, 40, 50];
+
+// function calculateTotal(arr) {
+//   let total = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     total += arr[i];
+//   }
+//   if (total > 100) {
+//     console.log('You spend too much!');
+//     return total;
+//   }
+//   console.log('Good job! Less than 100');
+//   return total;
+// }
+
+// // arr === gas/food
+// // calculateTotal(gas);
+// // calculateTotal(food);
+
+// const gasTotal = calculateTotal(gas);
+// const foodTotal = calculateTotal(food);
+// const randomTotal = calculateTotal([200, 4000, 700, 1]);
+
+// // objects
+// console.log({
+//   gas: gasTotal,
+//   food: foodTotal,
+//   random: randomTotal,
+// });
+
+
+// REFERENCE VS VALUE
+// Primitive Data Types
+// String, Number, Symbol, Boolean, Undefined, Null
+// Arrays, Functions, Objects = object
+// typeof
+
+// when assigning primitive data type value to a variable, any change is made firectly to that value, without affecting original value
+
+// when assigning non-primitive data type value to a variable is done by reference, any change will affect all the references.
 
 
