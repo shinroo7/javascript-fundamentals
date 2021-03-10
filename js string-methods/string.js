@@ -162,13 +162,93 @@
 
 
 // REFERENCE VS VALUE
-// Primitive Data Types
-// String, Number, Symbol, Boolean, Undefined, Null
-// Arrays, Functions, Objects = object
-// typeof
+// Primitive Data Types: String, Number, Symbol, Boolean, Undefined, Null
+// non-primitive: Arrays, Functions, Objects = object
 
 // when assigning primitive data type value to a variable, any change is made firectly to that value, without affecting original value
 
+// const number = 1;
+// let number2 = number;
+// number2 = 7;
+// console.log(`the first number is ${number}`);
+// console.log(`the second number is ${number2}`);
+
+
 // when assigning non-primitive data type value to a variable is done by reference, any change will affect all the references.
 
+// * both person and person2 change to anna. Because the data type is non-primitive ({} ---> object)
+
+// * by using let person2 = {...person} can prevent the effect of all reference
+
+// let person = {name: 'bob'};
+// let person2 = person; // *
+// person2.name = 'anna'; 
+// console.log(`the first person is ${person.name}`);
+// console.log(`the second person is ${person2.name}`);
+
+
+// NULL AND UNDEFINED
+// both represent "no value"
+
+// undefined - "javascript can not find value for this"
+
+// variable without value
+// missing function arguments
+// missing object properties
+
+// null - "developer sets the value"
+
+// let number = 20 + null; // 20 + 0
+// console.log(number);
+// let number2 = 20 + undefined; // 20 + undefined
+// console.log(number2);
+
+
+// TRUTHY AND FALSY
+// Falsy: "", '', ``, 0, -0, NaN, false, null, undefined. Others are truthy.
+
+// const bool1 = true;
+// const bool2 = 2 > 1;
+
+// const text = `hello`;
+
+// if (text) {
+//     console.log('hey the value is truthy');
+// } else {
+//     console.log('hey the value is falsy');
+
+// }
+
+// if (bool1) {
+//     console.log(`Hey it works!`);
+// }
+// if (bool2) {
+//     console.log(`Hey it also works!`);
+// }
+
+
+// TERNARY OPERATOR 
+
+// unary operator -  typeof
+let text = 'some text';
+console.log(typeof text); //operand
+
+// binary operator - assignment
+let number = 3;
+let number2 = 2 + 5;
+
+// ternary operator - option to shorten the amount of code
+// condition ? (runs if true) : (runs if false)
+
+const value = 1 < 0;
+
+// ternary operator:
+value ? console.log('value is true') : console.log('value is false');
+
+// usual way:
+// if (value) {
+//     console.log('value is true');
+// } else {
+//     console.log("value is false");
+// }
 

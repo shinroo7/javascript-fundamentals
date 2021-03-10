@@ -226,3 +226,129 @@ Good job! Less than 100  // foodTotal
 You spend too much!  // randomTotal
 {gas: 190, food: 100, random: 4901}
 ```
+
+### REFERENCE VS VALUE
+
+- Primitive Data Types: String, Number, Symbol, Boolean, Undefined, Null
+- Non- primitivve data type: Arrays, Functions, Objects = object
+
+Can use ```typeof``` to find out the data type.
+
+
+When assigning primitive data type value to a variable, any change is made firectly to that value, without affecting original value
+
+```
+// console log print 
+// the first number is 1
+// the second number is 7
+
+const number = 1;
+let number2 = number;
+number2 = 7;
+console.log(`the first number is ${number}`);
+console.log(`the second number is ${number2}`);
+```
+
+When assigning non-primitive data type value to a variable is done by reference, any change will affect all the references.
+
+```
+// * both person and person2 change to anna. Because the data type is non-primitive ({} ---> object)
+// console log print 
+// the first person is anna
+// the second person is anna
+
+// * by using let person2 = {...person} can prevent the effect of all reference
+// console log print 
+// the first person is bob
+// the second person is anna
+
+let person = {name: 'bob'};
+let person2 = person; // *
+person2.name = 'anna'; 
+console.log(`the first person is ${person.name}`);
+console.log(`the second person is ${person2.name}`);
+```
+
+### NULL AND UNDEFINED
+
+Both represent "no value"
+
+- undefined - "javascript can not find value for this"
+  - variable without value
+  - missing function arguments
+  - missing object properties
+
+- null - "developer sets the value"
+
+```
+let number = 20 + null; // 20 + 0
+console.log(number);
+
+let number2 = 20 + undefined; // 20 + undefined
+console.log(number2);
+
+// console print
+// 20 --- null
+// NaN --- undefined
+```
+
+### TRUTHY AND FALSY
+
+Falsy: "", '', ``, 0, -0, NaN, false, null, undefined. Others are truthy.
+
+```
+const bool1 = true;
+const bool2 = 2 > 1;
+
+const text = `hello`;
+
+if (text) {
+    console.log('hey the value is truthy');
+} else {
+    console.log('hey the value is falsy');
+}
+
+// console print
+// hey the value is truthy  <-- when text is any but falsy selection
+// hey the value is falsy  <-- when text is "", '', ``, 0, -0, NaN, false, null, undefined
+```
+```
+if (bool1) {
+    console.log(`Hey it works!`);
+}
+if (bool2) {
+    console.log(`Hey it also works!`);
+}
+```
+
+### TERNARY OPERATOR 
+
+- unary operator -  typeof
+```
+let text = 'some text';
+console.log(typeof text); //operand
+```
+
+- binary operator - assignment
+```
+let number = 3;
+let number2 = 2 + 5;
+```
+
+- ternary operator - option to shorten the amount of code
+
+```condition ? (runs if true) : (runs if false)```
+
+```
+const value = 1 < 0;
+
+// ternary operator:
+value ? console.log('value is true') : console.log('value is false');
+
+// usual way:
+if (value) {
+    console.log('value is true');
+} else {
+    console.log("value is false");
+}
+```
