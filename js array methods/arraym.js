@@ -49,8 +49,87 @@
 // });
 
 
-// 02. MAP
+// 02. MAP 
 // does return a new array
 // does not change size of oringinal array
 // uses values from oringinal array when making new one
+
+// const people = [
+//   { name: "bob", age: 20, position: "developer" },
+//   { name: "peter", age: 25, position: "designer" },
+//   { name: "susy", age: 30, position: "the boss" }
+// ];
+
+// // callback function 01
+// const ages = people.map(function (person) {
+//     console.log(person);
+//     return 'hello world';
+// });
+// console.log(ages);
+
+
+// callback function 02
+// const ages = people.map(function (person) {
+//     return person.age + 20;
+// });
+
+// console.log(ages);
+
+
+// callback function 03
+// use object to return more values
+// const newPeople = people.map(function (person) {
+//     return {
+//         firstName: person.name.toUpperCase(),
+//         oldAge: person.age + 20,
+//     };
+// });
+
+// console.log(newPeople);
+
+
+// callback function 04 + DOM
+// const names = people.map(function (person) {
+//     return `<h1>${person.name}</h1>`;
+// });
+
+// document.body.innerHTML = names.join('');
+
+// console.log(names);
+
+
+// FILTER
+// does return a new array
+// can manipulate the size of new array
+// returns based on condition (if...), if none is matched, the array stays empty
+
+// const people = [
+//   { name: "bob", age: 20, position: "developer" },
+//   { name: "peter", age: 25, position: "designer" },
+//   { name: "susy", age: 30, position: "the boss" },
+// ];
+
+// const youngPeople = people.filter(function(person){
+//     return person.age <= 25;
+// })
+
+// const developers = people.filter(function (person) {
+//   return person.position === 'developer';
+// });
+
+// console.log(youngPeople); // new array includes bob and peter
+// console.log(developers); // new array includes bob
+
+
+// FIND
+// returns object
+// returns first match, if no match --> undefined
+// great for getting unique value
+
+const people = [
+  { name: "bob", age: 20, position: "developer" },
+  { name: "peter", age: 25, position: "designer" },
+  { name: "susy", age: 30, position: "the boss" },
+  { name: "anna", age: 35, position: "the boss" },
+];
 
