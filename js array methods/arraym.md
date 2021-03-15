@@ -133,5 +133,122 @@ console.log(youngPeople); // new array includes bob and peter
 console.log(developers); // new array includes bob
 ```
 
+### FIND
 
+- returns single instance - (in this case object)
+- returns first match, if no match --> undefined
+- great for getting unique value
 
+```
+const people = [
+  { name: "bob", age: 20, position: "developer", id: 1 },
+  { name: "peter", age: 25, position: "designer", id: 2 },
+  { name: "susy", age: 30, position: "the boss", id: 3 },
+  { name: "anna", age: 35, position: "the boss", id: 4 },
+];
+
+const person = people.find(function(person) {
+  return person.id === 3;
+});
+
+console.log(person.name);
+
+//console returns: susy
+```
+```
+// New object as String, return string bob in console
+const names = ['bob', 'peter', 'susy'];
+console.log(
+  names.find (function (name) {
+    return name === 'bob';
+  })
+);
+
+//console returns: bob
+```
+```
+// v.s. filter - return an array with index #0
+
+const person2 = people.filter(function (person) {
+  return person.id === 3;
+});
+
+console.log(person2);
+//console returns: [{…}]
+0: {name: "susy", age: 30, position: "the boss", id: 3}
+
+console.log(person2[0].name); 
+// if only want name, you can add index no.
+```
+
+### REDUCE
+
+- iterates, callback function
+- reduces to a single value - number, array, object
+- 1 parameter ('acc') - total of all calculations (accumulation). ALWAYS return it first.
+- 2 parameter ('curr') - current iteration/value
+
+```
+const people = [
+  { name: "bob", age: 20, position: "developer", id: 1, salary: 200 },
+  { name: "peter", age: 25, position: "designer", id: 2, salary: 300 },
+  { name: "susy", age: 30, position: "the boss", id: 3, salary: 500 },
+  { name: "anna", age: 35, position: "the boss", id: 4, salary: 500 },
+];
+
+const total = people.reduce(function(acc, currItem) {
+  console.log(`total ${acc}`);
+  console.log(`current money : ${currItem.salary}`);
+  acc += currItem.salary;
+  return acc;
+}, 0)
+// 0 is the start number, if it's changed to 500, then the start number will be 500 and the total is 2000.
+
+console.log(total);
+
+// console print:
+total 0
+current money : 200
+total 200
+current money : 300
+total 500
+current money : 500
+total 1000
+current money : 500
+1500
+```
+
+### MATH
+
+- Standard built-in objects - always available
+
+```
+const number = 4.56789;
+const result = Math.floor(number); 
+// Returns the greatest integer less than or equal to its numeric argument. Here is 4.
+
+const number = 4.12222;
+const result = Math.ceil(number); 
+// Returns the smallest integer greater than or equal to its numeric argument. Here is 5.
+
+const number = 49;
+const result = Math.sqrt(number);
+
+const result = Math.PI;
+const result = Math.min(4, 5, 6, 7, 8);
+const result = Math.max(4, 5, 6, 7, 8);
+```
+```
+const result = Math.random(); // value is less than 1 (0 - 0.9999999...)
+
+// to make random number >= 1 and only get the integer
+const result = Math.floor(Math.random() * 10); // 0 - 9
+
+// OR
+const result = Math.floor(Math.random() * 10 + 1); // 1 - 10
+
+// OR
+const result = Math.ceil(Math.random() * 10); // 1 - 10
+
+console.log(result);
+```
