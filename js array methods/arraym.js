@@ -209,11 +209,46 @@
 // DATE
 
 const months = [
-
-]
-
-const days = [
-  
+  "January", // index no is 0
+  "February", // index no is 1
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
+const days = [
+  "Sunday", // index no is 0
+  "Monday", // index no is 1
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
+// const date = new Date(); // the current date
+const date = new Date('1/12/2004'); // setting the date you need (in the past or future)
+
+const month = date.getMonth();
+console.log(month); // index no
+console.log(months[month]); // match the index no to the month
+
+const day = date.getDay();
+console.log(day);
+console.log(days[day]);
+
+console.log(date.getDate());
+console.log(date.getFullYear());
+
+const sentence = `${days[day]}, ${date.getDate()} ${months[month]} ${date.getFullYear()} `;
+
+console.log(sentence); // Tuesday, 16 March 2021
+
+document.body.innerHTML = sentence; // show in web page Tuesday, 16 March 2021
