@@ -1,6 +1,6 @@
 ### nodeValue & textContent
 
-get same results, the content of the text
+get same results, return the text value of the element
 
 - nodeValue: need to take extra steps to get proper value 
 - textContent: easier to get text content
@@ -109,4 +109,156 @@ if (result) {
 
 const classValue = third.classList;
 console.log(classValue);
+```
+
+### CreateElement
+
+- createElement('element')
+- createTextNode('text content')
+- element.appendChild(childElement)
+
+```
+const result = document.querySelector('#result');
+
+// create empty element
+const bodyDiv = document.createElement('div');
+
+// create text node
+const text = document.createTextNode('a simple body div');
+bodyDiv.appendChild(text);
+document.body.appendChild(bodyDiv);
+// Inspect --> Elements: <div>a simple body div</div> be added in html body
+```
+```
+const heading = document.createElement('h2');
+const headingText = document.createTextNode('dynamic heading');
+heading.appendChild(headingText);
+heading.classList.add('blue');
+
+result.appendChild(heading);
+console.log(result.children);
+// Inspect --> Elements: <h2 class="blue">dynamic heading</h2> be added in <div id="result">
+```
+
+### InsertBefore
+
+insertBefore('element','location'); - before which element you want to insert a dynamic element
+
+```
+const result = document.querySelector("#result");
+const first = document.querySelector(".red");
+
+// create empty element
+const bodyDiv = document.createElement("div");
+
+// create text node
+const text = document.createTextNode("a simple body div");
+bodyDiv.appendChild(text);
+document.body.insertBefore(bodyDiv, result);
+// insert "a simple body div" before "i'm the child of result"
+```
+```
+// result element
+const heading = document.createElement("h2");
+const headingText = document.createTextNode("dynamic heading");
+heading.appendChild(headingText);
+heading.classList.add("blue");
+
+result.insertBefore(heading, first);
+// insert heading ("dynamic heading") before first ("i'm the child of result")
+
+console.log(result.children);
+```
+
+### ReplaceChild
+
+replaceChild('new','old');
+
+```
+const result = document.querySelector("#result");
+
+const bodyDiv = document.createElement("div");
+const text = document.createTextNode("a simple body div");
+bodyDiv.appendChild(text);
+document.body.insertBefore(bodyDiv, result);
+
+// replace bodyDiv
+const smallHeading = document.createElement('h6');
+const smallText = document.createTextNode("i'm small heading");
+smallHeading.classList.add("red");
+smallHeading.appendChild(smallText);
+document.body.replaceChild(smallHeading, bodyDiv);
+```
+
+### PREPEND & INNERTEXT
+
+```
+const heading = document.createElement('h2');
+
+heading.innerText = `i am a dynamic heading`; 
+// assign text value
+
+document.body.prepend(heading); 
+// allocate the element before the original element
+```
+
+### REMOVE & REMOVECHILD
+
+RemoveChild requires parent element.
+
+```
+const result = document.querySelector('#result');
+// result.remove(); // remove the div with id result
+
+const heading = result.querySelector('h1'); 
+// assign the value of h1 in the div to heading
+
+result.removeChild(heading);
+console.log(heading);
+```
+
+### InnerHTML And TextContent
+
+textContent can only pass text value, innerHTML can include the structure (elements, class, id, etc.)
+
+```
+const list = document.getElementById('first');
+const div = document.getElementById('second');
+const item = document.querySelector('.item');
+
+console.log(div.textContent); // text value
+console.log(list.innerHTML); // include whole element structure
+console.log(list.textContent); // text value
+```
+```
+// add new element 
+const randomVar = 'random value';
+
+const ul = document.createElement('ul');
+ul.innerHTML = `<li class="item">${randomVar}</li>
+        <li>list item</li> <li>list item</li>`;
+document.body.appendChild(ul);
+
+div.textContent = `<li class="item">${randomVar}</li>
+        <li>list item</li> <li>list item</li>`; 
+// shows <li class="item">${randomVar}</li> <li>list item</li> <li>list item</li>
+```
+
+### Change CSS With Style Propert
+
+```
+const random = document.querySelector('.random');
+console.log(random.style); 
+// all the css properties
+
+// add css one by one
+
+random.style.backgroudColor = "blue";
+random.style.color = "yellow";
+random.style.fontSize = '3rem';
+random.style.textTransform = 'capitalize';
+
+// OR add it by add class already set in HTML
+
+random.classList.add('title');
 ```
