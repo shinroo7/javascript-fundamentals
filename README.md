@@ -102,4 +102,4 @@ I've completed the [JavaScript Fundamentals](https://www.youtube.com/watch?v=2Ji
     - Local Storage With Multiple Values
 
 
-### **Course provided by [John Smilga](www.johnsmilga.com).** 😎 
+**Course provided by [John Smilga](www.johnsmilga.com)** 😎 
